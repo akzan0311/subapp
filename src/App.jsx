@@ -19,7 +19,7 @@ const App = () => {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
   
-  console.log({onlineUsers})
+  // console.log({onlineUsers})
 
   useEffect(() => {
     checkAuth();
@@ -36,7 +36,7 @@ const App = () => {
     <div data-theme={theme}>
       {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element= {<HomePage />} />
+        <Route path="/subapp" element= {<HomePage />} />
         <Route path="/mv" element= {<MVDetailSection />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/signup" element={!authUser?<SignUpPage />: <Navigate to="/" />} />

@@ -1,80 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-
-
-function CategorySection({ title, ranking, topItems }) {
-  return (
-    <div className="mb-16">
-      <h2 className="text-2xl font-bold mb-6 text-red-600">{title}</h2>
-      <div className="grid grid-cols-12 gap-8">
-        {/* Ranking list */}
-        <div className="col-span-12 md:col-span-3">
-          <h3 className="text-lg font-semibold mb-4">BẢNG XẾP HẠNG</h3>
-          <ul className="space-y-2">
-            {ranking.map((item, idx) => {
-              const rankColors = [
-                "bg-red-600 text-white",
-                "bg-gray-400 text-white",
-                "bg-yellow-500 text-white",
-              ];
-              return (
-                <li
-                  key={item.id}
-                  className="flex justify-between items-center p-2 rounded hover:bg-gray-100 cursor-pointer"
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`w-6 h-6 flex items-center justify-center rounded-full text-sm font-bold ${
-                        rankColors[idx] || "bg-gray-200 text-gray-700"
-                      }`}
-                    >
-                      {idx + 1}
-                      <Link to={`/detail/${item.id}`} className="font-medium hover:text-red-600">
-    #{idx + 1} {item.title}
-  </Link>
-                    </span>
-                    <span className="font-medium text-sm">{item.title}</span>
-                  </div>
-                  <span className="text-xs text-gray-600">
-                    {item.votes.toLocaleString()} VOTE
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        {/* Top Items */}
-        <div className="col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {topItems.map((mv) => (
-            <div
-              key={mv.id}
-              className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
-            >
-              <img
-                src={mv.img}
-                alt={mv.title}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-4 flex flex-col">
-                <h4 className="font-semibold text-lg">{mv.title}</h4>
-                <p className="text-sm text-gray-600 mt-1 flex-1">{mv.desc}</p>
-                <div className="flex items-center justify-between mt-3">
-                  <span className="text-sm font-medium">
-                    {mv.votes.toLocaleString()} VOTE
-                  </span>
-                  <button className="px-3 py-1 border rounded-full text-sm flex items-center gap-1 hover:bg-red-500 hover:text-white transition">
-                    ❤️ BÌNH CHỌN
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+import CategorySection from "./CategorySection.jsx";
 
 export default function HomePage() {
   // Giả lập nhiều hạng mục
@@ -85,7 +10,7 @@ export default function HomePage() {
         { id: 1, title: "Binz", votes: 1573862 },
         { id: 2, title: "Trúc Nhân", votes: 520110 },
         { id: 3, title: "Sơn Tùng M-TP", votes: 233581 },
-        { id: 4, title: "Sơn Tùng M-TP1", votes: 233581 }
+        { id: 4, title: "Sơn Tùng M-TP1", votes: 233581 },
       ],
       topItems: [
         {
@@ -115,7 +40,7 @@ export default function HomePage() {
           desc: "Comeback ấn tượng.",
           img: "https://via.placeholder.com/400x400?text=Son+Tung",
           votes: 2335821,
-        }
+        },
       ],
     },
     {
