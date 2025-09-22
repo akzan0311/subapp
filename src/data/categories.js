@@ -1,4 +1,3 @@
-// src/data/categories.js
 
 export const categories = [
   {

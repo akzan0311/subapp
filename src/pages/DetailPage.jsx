@@ -22,25 +22,29 @@ const DetailPage = () => {
   const { id } = useParams();
   const data = fakeData[id];
 
-  if (!data) return <p>Không tìm thấy hạng mục</p>;
+  if (!data) return <p className="text-center text-red-600 py-10">Không tìm thấy hạng mục</p>;
 
   return (
-    <div className="min-h-screen bg-[#2e1e23] text-white">
+    <div className="bg-[#2e1e23] text-white min-h-screen">
       {/* HERO SECTION */}
-      <section className="flex h-screen">
+      <section className="flex flex-col lg:flex-row min-h-screen items-center justify-center px-6 py-10 gap-10 max-w-7xl mx-auto">
         {/* Ảnh bên trái */}
-        <div className="w-1/2 flex items-center justify-center p-8">
+        <div className="w-full lg:w-1/2 flex justify-center">
           <img
             src={data.img}
             alt={data.title}
-            className="rounded-lg shadow-lg w-full max-w-lg"
+            className="rounded-2xl shadow-2xl w-full max-w-md object-cover"
           />
         </div>
 
         {/* Nội dung bên phải */}
-        <div className="w-1/2 flex flex-col justify-center p-10">
-          <h4 className="uppercase text-sm tracking-widest mb-2">MV CỦA NĂM</h4>
-          <h1 className="text-5xl font-bold mb-4">{data.title}</h1>
+        <div className="w-full lg:w-1/2">
+          <h4 className="uppercase text-sm tracking-widest text-violet-300 mb-2">
+            MV CỦA NĂM
+          </h4>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            {data.title}
+          </h1>
 
           <div className="flex items-center gap-6 text-sm mb-6">
             <button className="flex items-center gap-1 hover:underline">
@@ -54,36 +58,40 @@ const DetailPage = () => {
             </button>
           </div>
 
-          <p className="text-lg leading-relaxed mb-6">{data.desc}</p>
+          <p className="text-lg text-stone-200 mb-6 leading-relaxed">{data.desc}</p>
 
-          <div className="flex items-center gap-4">
-            <span className="text-2xl font-bold">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="text-3xl font-bold text-rose-400">
               {data.votes.toLocaleString()}
             </span>
-            <span className="text-sm">LƯỢT BÌNH CHỌN</span>
-            <button className="ml-6 px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-red-500 hover:text-white transition">
-              ❤️ BÌNH CHỌN
+            <span className="text-sm uppercase tracking-wider text-stone-300">
+              Lượt bình chọn
+            </span>
+            <button className="ml-6 px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-rose-500 hover:text-white transition">
+              ❤️ Bình chọn
             </button>
           </div>
         </div>
       </section>
 
       {/* ARTICLE SECTION */}
-      <section className="bg-[#f8f6f2] text-black px-8 py-16 ">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          MV Duyên Kiếp Cầm Ca: khi Binz lột tả mặt tối của đời nghệ sĩ
-        </h2>
-        <p className="text-lg italic text-gray-700 mb-4">
-          Binz cho thấy “đời ca sĩ đáng thương và đáng được yêu” khi hóa thân
-          thành ăn mày trong MV Duyên Kiếp Cầm Ca.
-        </p>
-        <p className="text-base text-gray-800 leading-relaxed">
-          Đây là một trong những sản phẩm âm nhạc đặc biệt, với sự kết hợp độc
-          đáo giữa EDM và bolero. Thông qua MV, Binz thể hiện sự mâu thuẫn trong
-          cuộc sống của người nghệ sĩ – vừa hào nhoáng trên sân khấu, vừa đối
-          diện với những nỗi cô đơn khi ánh đèn tắt. Hình ảnh MV mang tính biểu
-          tượng và giàu tính nghệ thuật, khắc họa sâu sắc cảm xúc của nghệ sĩ.
-        </p>
+      <section className="bg-[#f8f6f2] text-black px-6 md:px-10 py-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            MV Duyên Kiếp Cầm Ca: khi Binz lột tả mặt tối của đời nghệ sĩ
+          </h2>
+          <p className="text-lg italic text-gray-700 mb-4">
+            Binz cho thấy “đời ca sĩ đáng thương và đáng được yêu” khi hóa thân
+            thành ăn mày trong MV Duyên Kiếp Cầm Ca.
+          </p>
+          <p className="text-base text-gray-800 leading-relaxed">
+            Đây là một trong những sản phẩm âm nhạc đặc biệt, với sự kết hợp độc
+            đáo giữa EDM và bolero. Thông qua MV, Binz thể hiện sự mâu thuẫn trong
+            cuộc sống của người nghệ sĩ – vừa hào nhoáng trên sân khấu, vừa đối
+            diện với những nỗi cô đơn khi ánh đèn tắt. Hình ảnh MV mang tính biểu
+            tượng và giàu tính nghệ thuật, khắc họa sâu sắc cảm xúc của nghệ sĩ.
+          </p>
+        </div>
       </section>
     </div>
   );

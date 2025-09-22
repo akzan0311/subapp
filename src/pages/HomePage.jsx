@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import CategorySection from "./CategorySection.jsx";
-import { categories } from "../data/categories"; // 👈 import từ file mới
+import { categories } from "../data/categories";
 
 export default function HomePage() {
   const [visibleCount, setVisibleCount] = useState(1);
@@ -19,29 +19,33 @@ export default function HomePage() {
     );
 
     if (loadMoreRef.current) observer.observe(loadMoreRef.current);
-
     return () => {
       if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
-      {categories.slice(0, visibleCount).map((cat) => (
-        <CategorySection
-          key={cat.title}
-          title={cat.title}
-          ranking={cat.ranking}
-          topItems={cat.topItems}
-        />
-      ))}
+    <div className="min-h-screen bg-white px-4 md:px-8 py-8">
+      <div className="max-w-6xl mx-auto space-y-16">
+        {categories.slice(0, visibleCount).map((cat) => (
+          <CategorySection
+            key={cat.title}
+            title={cat.title}
+            ranking={cat.ranking}
+            topItems={cat.topItems}
+          />
+        ))}
 
-      {visibleCount < categories.length && (
-        <div ref={loadMoreRef} className="text-center py-6 text-gray-500">
-                  <span className="loading loading-bars loading-lg text-primary"></span>
-
-        </div>
-      )}
+        {visibleCount < categories.length && (
+          <div
+            ref={loadMoreRef}
+            className="flex justify-center items-center py-10"
+          >
+            <span className="animate-spin inline-block w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full"></span>
+            <span className="ml-3 text-sm text-gray-500">Đang tải thêm...</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

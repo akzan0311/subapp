@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { useThemeStore } from "./store/useThemeStore.js";
 import DetailPage from "./pages/DetailPage.jsx";
-import AdminPage from "./pages/AdminPage.jsx";
+import AdminPage from "./pages/Admin/AdminPage.jsx";
 
 
 const App = () => {
@@ -38,8 +38,6 @@ const App = () => {
         <Route path="/" element= {<HomePage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/admin" element= {<AdminPage />} />
-
-
 
         <Route path="/signup" element={!authUser?<SignUpPage />: <Navigate to="/" />} />
         <Route path="/login" element={!authUser?<LoginPage />: <Navigate to="/" />} />
