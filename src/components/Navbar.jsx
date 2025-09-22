@@ -17,7 +17,7 @@ const Navbar = () => {
               <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center">
                 <MessageSquare className="w-5 h-5 text-primary" />
               </div>
-              <h1 className="text-lg font-bold">MMO</h1>
+              <h1 className="text-lg font-bold">zzzz</h1>
             </Link>
           </div>
 
@@ -38,7 +38,7 @@ const Navbar = () => {
                   className="btn btn-sm gap-2 btn-primary text-white"
                 >
                   <Wallet className="size-5" />
-                  <span className="hidden sm:inline">Nạp tiền</span>
+                  <span className="hidden sm:inline">zzzzz</span>
                 </Link>
 
                 <Link to={"/profile"} className="btn btn-sm gap-2">
